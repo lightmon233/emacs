@@ -1,4 +1,10 @@
+;; -*- lexical-binding: t -*-
+;; 启用lexical-binging(词法绑定), 最好放在第一行
 
+;; 启用行号
+(global-linum-mode t)
+
+;; 干掉欢迎界面
 (setq inhibit-splash-screen t)
 
 ;; 开启服务器模式
@@ -87,3 +93,20 @@
 ;; 增强minibuffer补全
 (package-install 'vertico)
 (vertico-mode t)
+
+;; 模糊搜索
+(package-install 'orderless)
+(setq completion-styles '(orderless))
+
+;; 显示更多信息
+(package-install 'marginalia)
+(marginalia-mode t)
+
+;; 提醒快捷键
+(package-install 'embark)
+(global-set-key (kbd "C-;") 'embark-act)
+(setq prefix-help-command 'embark-prefix-help-command)
+
+;;
+(package-install 'consult)
+(global-set-key (kbd "C-s") 'consult-line)
